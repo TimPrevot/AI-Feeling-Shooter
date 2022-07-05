@@ -1,6 +1,6 @@
 <script setup lang="ts"></script>
 <template>
-	<main class="pt-16 flex-initial flex-col gap-2 items-center">
+	<main class="flex-initial flex-col gap-2 items-center">
 		<section class="w-auto">
 			<h2 class="text-center">The best app in the world!</h2>
 			<div class="opacity-50 mb-4">
