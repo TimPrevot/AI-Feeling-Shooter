@@ -1,1 +1,10 @@
-ÿþ
+{
+  "singleQuote": true,
+  "printWidth": 80,
+  "editor.formatOnSave": true,
+  "proseWrap": "always",
+  "tabWidth": 4,
+  "useTabs": true,
+  "semi": true,
+  "vueIndentScriptAndStyle": true
+}
