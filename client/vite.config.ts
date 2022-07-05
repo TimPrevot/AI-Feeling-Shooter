@@ -7,5 +7,6 @@ export default defineConfig({
   plugins: [
       vue(),
       eslintPlugin(),
+      vue({reactivityTransform: true})
   ]
 })
