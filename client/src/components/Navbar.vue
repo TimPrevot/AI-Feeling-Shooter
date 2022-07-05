@@ -1,5 +1,9 @@
 <script setup lang="ts"></script>
 
-<template><p>Navbar</p></template>
+<template>
+	<header class="container mx auto">
+		<nav class="p-8">Navbar</nav>
+	</header>
+</template>
 
 <style scoped></style>

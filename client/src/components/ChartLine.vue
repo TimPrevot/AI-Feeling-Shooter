@@ -1,22 +1,24 @@
 <script setup lang="ts">
 	import { h } from 'vue';
-	import { Bar } from 'vue-chartjs';
+	import { Line } from 'vue-chartjs';
 	import {
 		Chart as ChartJS,
 		Title,
 		Tooltip,
 		Legend,
-		BarElement,
-		CategoryScale,
+		LineElement,
 		LinearScale,
+		PointElement,
+		CategoryScale,
 	} from 'chart.js';
 	ChartJS.register(
 		Title,
 		Tooltip,
 		Legend,
-		BarElement,
+		LineElement,
 		CategoryScale,
-		LinearScale
+		LinearScale,
+		PointElement
 	);
 
 	interface Props {
@@ -27,24 +29,22 @@
 		chartOptions: object;
 		chartId: string;
 		datasetId: string;
-		width?: number;
-		height?: number;
+		width: number;
+		height: number;
 		cssClasses?: string;
 		styles?: object;
 		plugins?: object;
 	}
 	const props = withDefaults(defineProps<Props>(), {
-		chartId: 'bar-chart',
-		datasetId: 'bar-chart-dataset',
-		width: 800,
-		height: 800,
+		chartId: 'line-chart',
+		datasetId: 'line-chart-dataset',
 	});
 
-	// Added a ts-ignore flag because Bar is not recognized by as a valid
+	// Added a ts-ignore flag because Line is not recognized by as a valid
 	// HTML element.
-	const barChart = () => {
+	const lineChart = () => {
 		//@ts-ignore:next-line
-		return h(Bar, {
+		return h(Line, {
 			chartData: props.chartData,
 			chartOptions: props.chartOptions,
 			chartId: props.chartId,
@@ -57,5 +57,5 @@
 	};
 </script>
 <template>
-	<barChart />
+	<lineChart />
 </template>
