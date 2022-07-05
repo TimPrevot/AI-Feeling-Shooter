@@ -16,8 +16,6 @@
   "parserOptions": {
     "ecmaVersion": 2021
   },
-  "plugins": [
-  ],
-  "rules": {
-  }
+  "plugins": [],
+  "rules": {}
 }
