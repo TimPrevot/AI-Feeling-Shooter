@@ -1,13 +1,3 @@
-<template>
-
-</template>
-
-<script>
-export default {
-  name: "Login"
-}
-</script>
-
-<style scoped>
-
-</style>
+<script setup lang="ts"></script>
+<template></template>
+<style lang="scss"></style>
