@@ -8,7 +8,6 @@
 			<div class="flex flex-1 gap-10 justify-start items-center">
 				<div class="flex gap-1 items-center">
 					<img class="w-10" src="../assets/logo.png" alt="" />
-					<p class="text-3xl text-accent">AI Shooter</p>
 				</div>
 				<a href="/"> Home</a>
 				<a href="/about">About</a>
