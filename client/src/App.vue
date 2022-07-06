@@ -7,13 +7,9 @@
 
 <template>
 	<Navbar />
-  <router-view />
+	<Home />
 </template>
 
-<script setup lang="ts">
-import NavbarView from "./components/Navbar-View.vue"
-
-</script>
 <style>
 	@import url('https://fonts.googleapis.com/css?family=Roboto');
 
