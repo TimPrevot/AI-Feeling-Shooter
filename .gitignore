@@ -1,6 +1,9 @@
 # compiled output
 api/dist
 api/node_modules
+client/node_modules
+client/dist
+client/dist-ssr
 
 # Logs
 logs
@@ -20,6 +23,7 @@ lerna-debug.log*
 # IDEs and editors
 /.idea
 api/.idea
+client/.idea
 .project
 .classpath
 .c9/
