@@ -85,12 +85,12 @@
 					</li>
 				</ul>
 				<p class="text-base text-[#adadad]">
-					Not a member yet?
+					Already a member ?
 					<router-link
-						to="/register"
+						to="/login"
 						class="text-primary hover:underline hover:text-primary-100"
 					>
-						Sign Up
+						Sign In
 					</router-link>
 				</p>
 			</span>

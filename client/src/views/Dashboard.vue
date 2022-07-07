@@ -1,7 +1,7 @@
 <script setup lang="ts">
 	import ChartLine from '../components/ChartLine.vue';
-	interface Props {}
-	const props = defineProps<Props>();
+	// interface Props {}
+	// const props = defineProps<Props>();
 
 	const chartData = {
 		labels: ['January', 'February', 'March'],
@@ -14,16 +14,48 @@
 			},
 		],
 	};
-	const chartOptions = { responsive: false, maintainAspectRatio: false };
-	const height = 800;
-	const width = 800;
+	const chartOptions = {
+		responsive: true,
+		maintainAspectRatio: false,
+		plugins: {
+			title: {
+				display: true,
+				text: 'Chart.js Line Chart',
+			},
+		},
+		scales: {
+			y: {
+				title: {
+					color: 'red',
+					display: true,
+					text: 'probability',
+				},
+			},
+		},
+	};
+	const height = 400;
+	const width = 400;
 </script>
 <template>
-	<ChartLine
-		:chart-data="chartData"
-		:chart-options="chartOptions"
-		:height="height"
-		:width="width"
-	/>
+	<div
+		class="bg-primary-400 h-full py-5 overflow-hidden flex flex-inline place-content-around"
+	>
+		<ChartLine
+			:chart-data="chartData"
+			:chart-options="chartOptions"
+			:height="height"
+			:width="width"
+		/>
+		<ChartLine
+			:chart-data="chartData"
+			:chart-options="chartOptions"
+			:height="height"
+			:width="width"
+		/>
+	</div>
 </template>
-<style lang="scss"></style>
+<style lang="css">
+	canvas {
+		background-color: #fcfdfe;
+	}
+</style>
