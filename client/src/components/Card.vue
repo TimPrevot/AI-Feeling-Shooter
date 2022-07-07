@@ -16,10 +16,13 @@
 		<span class="text-primary font-semibold text-lg block mb-4">
 			{{ props.subscription.tierName }}
 		</span>
-		<h2 class="font-bold text-dark mb-5 text-[42px]">
-			${{ props.subscription.pricePerYear }}
-			<span class="text-base font-medium"> / year </span>
+		<h2 v-if="props.subscription.tierName === 'Beginner'" class="font-bold text-dark mb-5 text-[42px]">
+			Free
 		</h2>
+    <h2 v-else class="font-bold text-dark mb-5 text-[42px]">
+      ${{ props.subscription.pricePerYear }}
+      <span class="text-base font-medium"> / year </span>
+    </h2>
 		<p class="text-base text-body-color pb-4 mb-4 border-b border-[#F2F2F2">
 			{{ props.subscription.tierDescription }}
 		</p>
@@ -31,20 +34,35 @@
 				{{ feature }}
 			</p>
 		</div>
-		<a
-			v-if="props.subscription.tierName === 'Business'"
-			href="javascript:void(0)"
-			class="w-full bg-primary-500 text-secondary-100 block text-base font-semibold border border-[#D4DEFF] rounded-md text-center p-4 hover:text-white hover:bg-primary hover:border-primary transition"
-		>
-			Choose {{ props.subscription.tierName }}
-		</a>
-		<a
-			v-else
-			href="javascript:void(0)"
-			class="w-full block text-base font-semibold border border-[#D4DEFF] rounded-md text-center p-4 hover:text-white hover:bg-primary hover:border-primary transition"
-		>
-			Choose {{ props.subscription.tierName }}
-		</a>
+    <div v-if="!$store.state.user">
+      <p
+          v-if="props.subscription.tierName === 'Beginner'"
+          class="w-full block text-base font-semibold border border-[#D4DEFF] rounded-md text-center p-4 hover:text-white hover:bg-primary hover:border-primary transition"
+      >
+        You only need an account
+      </p>
+      <p
+          v-else
+          class="w-full block text-base font-semibold border border-[#D4DEFF] rounded-md text-center p-4 hover:text-white hover:bg-primary hover:border-primary transition"
+      >
+        Please log in to choose {{ props.subscription.tierName }}
+      </p>
+    </div>
+    <div v-else>
+      <p
+          v-if="props.subscription.tierName === 'Beginner'"
+          class="w-full block text-base font-semibold border border-[#D4DEFF] rounded-md text-center p-4 hover:text-white hover:bg-primary hover:border-primary transition"
+      >
+        Already checkout
+      </p>
+      <button
+          v-else
+          class="w-full block text-base font-semibold border border-[#D4DEFF] rounded-md text-center p-4 hover:text-white hover:bg-primary hover:border-primary transition"
+          @click="$store.dispatch('subscribe',2)"
+      >
+        Choose {{ props.subscription.tierName }}
+      </button>
+    </div>
 		<div>
 			<span class="absolute right-0 top-7 z-[-1]">
 				<img src="../assets/circle_shade.svg" alt="circle shade" />

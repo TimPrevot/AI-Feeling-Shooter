@@ -4,31 +4,31 @@
 	// const props = defineProps<Props>();
 	const subscriptions = [
 		{
-			tierName: 'Personal',
+			tierName: 'Beginner',
 			tierDescription:
-				'Perfect for using in a personal website or a client project.',
-			pricePerYear: 59,
-			features: ['1 User', 'All UI components', 'Lifetime access'],
+				'Discover boursicotage',
+			pricePerYear: 0,
+			features: ['1 User', 'Classical prediction', 'Lifetime access'],
 		},
 		{
-			tierName: 'Business',
+			tierName: 'Medium',
 			tierDescription:
-				'Perfect for using in a business website or a client project.',
+				'A good investment for the medium boursicoteur',
+			pricePerYear: 49,
+			features: ['1 User', 'All UI components', 'Daily check'],
+		},
+		{
+			tierName: 'Professional',
+			tierDescription:
+				'The perfect offer for a boursicotage master',
 			pricePerYear: 99,
-			features: ['5 Users', 'All UI components', 'Lifetime access'],
-		},
-		{
-			tierName: 'Enterprise',
-			tierDescription:
-				'Perfect for using in a enterprise website or a client project.',
-			pricePerYear: 199,
-			features: ['10 Users', 'All UI components', 'Lifetime access'],
+			features: ['1 User','All UI components', 'Check every 2 hours'],
 		},
 	];
 </script>
 <template>
 	<div
-		class="w-full h-full bg-primary-100 text-primary-100 flex place-content-around"
+		class="w-full h-full bg-primary-400 text-primary-100 flex place-content-around"
 	>
 		<Card
 			v-for="subscription in subscriptions"
