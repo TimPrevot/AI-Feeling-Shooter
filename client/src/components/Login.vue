@@ -1,6 +1,6 @@
 <template>
-	<main>
-		<section class="bg-secondary-100">
+	<main class="h-full">
+		<section class="h-full w-full flex flex-wrap bg-secondary-100 items-center justify-center px-10">
 			<div class="container">
 				<div class="flex flex-wrap">
 					<div class="w-full">

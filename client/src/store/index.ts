@@ -16,9 +16,6 @@ const store = createStore({
     mutations: {
         setUser(state, user){
             state.user = user;
-            if (state.user){
-                state.user.isLoggedIn = true;
-            }
         },
 
         clearUser(state){
@@ -33,8 +30,9 @@ const store = createStore({
                    commit('setUser', response.data.loggedUser );
                    localStorage.setItem('user', JSON.stringify(response.data.loggedUser));
            }).catch((err) => {
-               console.log(err)
+               console.log(err.status)
            });
+            await router.push("/");
 
         },
 
@@ -42,10 +40,9 @@ const store = createStore({
            axios
                 .post(`${server.baseURL}/api/users/register`, data)
                 .then((response) =>{
-                    console.log(response.data);
                     dispatch('login',response.data);
             }).catch((err) => {
-                console.log(err);
+                console.log(err.status);
             });
 
             await router.push("/");
