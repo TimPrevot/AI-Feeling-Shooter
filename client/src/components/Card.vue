@@ -32,6 +32,14 @@
 			</p>
 		</div>
 		<a
+			v-if="props.subscription.tierName === 'Business'"
+			href="javascript:void(0)"
+			class="w-full bg-primary-500 text-secondary-100 block text-base font-semibold border border-[#D4DEFF] rounded-md text-center p-4 hover:text-white hover:bg-primary hover:border-primary transition"
+		>
+			Choose {{ props.subscription.tierName }}
+		</a>
+		<a
+			v-else
 			href="javascript:void(0)"
 			class="w-full block text-base font-semibold border border-[#D4DEFF] rounded-md text-center p-4 hover:text-white hover:bg-primary hover:border-primary transition"
 		>
