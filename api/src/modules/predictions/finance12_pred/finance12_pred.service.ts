@@ -9,7 +9,7 @@ import { Model } from 'mongoose';
 @Injectable()
 export class Finance12_predService {
   constructor(
-    @InjectModel('Finance1/2_pred')
+    @InjectModel('finance1_2_pred')
     private finance12_predModel: Model<Finance12_predDocument>,
   ) {}
 
