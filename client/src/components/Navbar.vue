@@ -22,42 +22,45 @@
 							</li>
 							<li>
 								<router-link
-									to="/pricing"
+									to="/subscriptions"
 									class="py-3 px-5 flex inline-flex ease-in duration-300 hover:bg-primary-500 rounded-lg"
 								>
-                  Subscriptions
+									Subscriptions
 								</router-link>
 							</li>
 						</ul>
 					</nav>
 				</div>
-        <div class="flex gap-6 justify-end">
-          <ul v-if="!$store.state.user" class="flex gap-6 justify-end">
-            <li>
-              <router-link
-                  to="/login"
-                  class="py-3 px-5 ease-in duration-300 hover:bg-primary-500 rounded-lg"
-              >
-                Log In
-              </router-link>
-            </li>
-            <li>
-              <router-link
-                  to="/register"
-                  class="py-3 px-5 bg-primary-300 ease-in duration-100 hover:bg-primary-500 rounded-lg"
-              >
-                Sign Up
-              </router-link>
-            </li>
-          </ul>
-          <button
-              v-else
-              @click="$store.dispatch('logout')"
-              class ="py-3 px-5 flex inline-flex ease-in duration-300 hover:bg-primary-500 rounded-lg"
-          >
-            Logout
-          </button>
-        </div>
+				<div class="flex gap-6 justify-end">
+					<ul
+						v-if="!$store.state.user"
+						class="flex gap-6 justify-end"
+					>
+						<li>
+							<router-link
+								to="/login"
+								class="py-3 px-5 ease-in duration-300 hover:bg-primary-500 rounded-lg"
+							>
+								Log In
+							</router-link>
+						</li>
+						<li>
+							<router-link
+								to="/register"
+								class="py-3 px-5 bg-primary-300 ease-in duration-100 hover:bg-primary-500 rounded-lg"
+							>
+								Sign Up
+							</router-link>
+						</li>
+					</ul>
+					<button
+						v-else
+						@click="$store.dispatch('logout')"
+						class="py-3 px-5 flex inline-flex ease-in duration-300 hover:bg-primary-500 rounded-lg"
+					>
+						Logout
+					</button>
+				</div>
 			</div>
 		</div>
 	</header>
