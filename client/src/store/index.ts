@@ -48,6 +48,16 @@ const store = createStore({
             await router.push("/");
         },
 
+        async subscribe(data){
+            axios
+                .patch(`${server.baseURL}/api/users/modify_rank`, data)
+                .then((response) =>{
+                    console.log(response.data);
+                }).catch((err) => {
+                console.log(err.status);
+            });
+        },
+
         logout({commit}){
             commit('clearUser')
             localStorage.removeItem('user')
