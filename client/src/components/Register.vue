@@ -9,7 +9,7 @@
 				>
 					<img src="../assets/logo.png" alt="logo" />
 				</div>
-				<form @submit.prevent="register">
+				<form @submit.prevent="register(registerForm.value)">
 					<div class="mb-6">
 						<input
 							type="text"
@@ -98,16 +98,27 @@
 	</main>
 </template>
 
-<script setup>
+<script setup lang="ts">
 	import { ref } from 'vue';
 	import { useStore } from 'vuex';
+
+  interface newUser {
+    firstname: string;
+    lastname: string;
+    username: string;
+    password: string;
+  }
 
 	const store = useStore();
 	const registerForm = ref({});
 
+
+
+
 	const register = () => {
-    console.log(registerForm.value)
+    console.log(registerForm.value);
 		store.dispatch('register', registerForm.value);
+    registerForm.value = {};
 	};
 </script>
 
