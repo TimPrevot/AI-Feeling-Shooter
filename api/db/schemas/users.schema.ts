@@ -21,6 +21,9 @@ export class Users {
 
   @Prop()
   password: string;
+
+  @Prop()
+  isLoggedIn: boolean;
 }
 
 export const UsersSchema = SchemaFactory.createForClass(Users);

@@ -1,10 +1,11 @@
-import { Injectable } from '@nestjs/common';
+import {Injectable, Res} from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Users, UsersDocument } from '../../../db/schemas/users.schema';
 import { CreateUserDto } from '../../../db/dtos/create-user.dto';
 import { Model } from 'mongoose';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const bcrypt = require('bcrypt');
+import { Response } from 'express';
 
 @Injectable()
 export class UsersService {
@@ -23,7 +24,7 @@ export class UsersService {
     return this.usersModel.findOne({ username: userName }).exec();
   }
 
-  async addOne(user: any): Promise<any> {
+  async addOne(user: any, @Res() res: Response): Promise<any> {
     const nbUsers = (await this.usersModel.find().exec()).length;
     await this.create({
       userId: nbUsers + 1,
@@ -32,9 +33,10 @@ export class UsersService {
       rank: 0,
       username: await user.username,
       password: await this.hashIt(user.password),
+      isLoggedIn:false,
     });
     const createdUser = { username: user.username, password: user.password };
-    return createdUser;
+   res.send(createdUser);
   }
 
   async hashIt(password: string): Promise<string> {
