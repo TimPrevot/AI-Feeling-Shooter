@@ -9,7 +9,7 @@ import { PredictionsModule } from './modules/predictions/predictions.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://86.247.71.158:12/'),
+    MongooseModule.forRoot('mongodb://86.247.71.158:12/m1project'),
     ConfigModule.forRoot(),
     UsersModule,
     AuthModule,
