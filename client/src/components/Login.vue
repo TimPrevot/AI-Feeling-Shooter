@@ -12,12 +12,13 @@
 							>
 								<img src="../assets/logo.png" alt="logo" />
 							</div>
-							<form>
+							<form @submit.prevent="login">
 								<div class="mb-6">
 									<input
 										type="text"
-										placeholder="Email"
+										placeholder="Username"
 										class="text-primary-100 w-full rounded-md border border-1 border-primary-100 py-3 px-5 bg-secondary-300 placeholder-[#ACB6BE] outline-none focus-visible:shadow-none focus:border-primary"
+                    v-model="loginForm.username"
 									/>
 								</div>
 								<div class="mb-6">
@@ -25,6 +26,7 @@
 										type="password"
 										placeholder="Password"
 										class="text-primary-100 w-full rounded-md border border-1 border-primary-100 py-3 px-5 bg-secondary-300 text-base text-body-color placeholder-[#ACB6BE] outline-none focus-visible:shadow-none focus:border-primary"
+                    v-model="loginForm.password"
 									/>
 								</div>
 								<div class="mb-6">
@@ -104,7 +106,10 @@
 	const store = useStore();
 	const loginForm = ref({});
 
+
+
 	const login = () => {
+    console.log(loginForm.value)
 		store.dispatch('login', loginForm.value);
 	};
 </script>

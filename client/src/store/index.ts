@@ -28,33 +28,19 @@ const store = createStore({
                .then((response) =>{
                    commit('setUser', response.data );
                    localStorage.setItem('user', JSON.stringify(response.data));
-           }).catch((error) => {
-               switch (error.code){
-                   case "401":
-                       console.log("Internal Server error");
-                       break;
-                   case "200":
-                       console.log("sucess");
-                       break;
-               }
+           }).catch((err) => {
+               console.log(err)
            });
 
         },
 
         async register({dispatch},data){
             axios
-                .put(`${server.baseURL}/api/users/add/user`, data)
+                .post(`${server.baseURL}/api/users/register`, data)
                 .then((response) =>{
                     dispatch('login',response.data)
-            }).catch((error) => {
-                switch (error.code){
-                    case "401":
-                        console.log("Internal Server error");
-                        break;
-                    case "200":
-                        console.log("sucess");
-                        break;
-                }
+            }).catch((err) => {
+                console.log(err)
             });
         },
 
