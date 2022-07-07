@@ -9,19 +9,37 @@
 				>
 					<img src="../assets/logo.png" alt="logo" />
 				</div>
-				<form>
+				<form @submit.prevent="register(registerForm.value)">
 					<div class="mb-6">
 						<input
 							type="text"
-							placeholder="Email"
+							placeholder="First Name"
 							class="text-primary-100 w-full rounded-md border border-1 border-primary-100 py-3 px-5 bg-secondary-300 placeholder-[#ACB6BE] outline-none focus-visible:shadow-none focus:border-primary"
+              v-model="registerForm.firstname"
 						/>
+					</div>
+          <div class="mb-6">
+						<input
+                type="text"
+                placeholder="Last Name"
+                class="text-primary-100 w-full rounded-md border border-1 border-primary-100 py-3 px-5 bg-secondary-300 placeholder-[#ACB6BE] outline-none focus-visible:shadow-none focus:border-primary"
+                v-model="registerForm.lastname"
+            />
+					</div>
+          <div class="mb-6">
+						<input
+                type="text"
+                placeholder="Username"
+                class="text-primary-100 w-full rounded-md border border-1 border-primary-100 py-3 px-5 bg-secondary-300 placeholder-[#ACB6BE] outline-none focus-visible:shadow-none focus:border-primary"
+                v-model="registerForm.username"
+            />
 					</div>
 					<div class="mb-6">
 						<input
 							type="password"
 							placeholder="Password"
 							class="text-primary-100 w-full rounded-md border border-1 border-primary-100 py-3 px-5 bg-secondary-300 text-base text-body-color placeholder-[#ACB6BE] outline-none focus-visible:shadow-none focus:border-primary"
+              v-model="registerForm.password"
 						/>
 					</div>
 					<div class="mb-6">
@@ -84,11 +102,23 @@
 	import { ref } from 'vue';
 	import { useStore } from 'vuex';
 
+  interface newUser {
+    firstname: string;
+    lastname: string;
+    username: string;
+    password: string;
+  }
+
 	const store = useStore();
 	const registerForm = ref({});
 
+
+
+
 	const register = () => {
+    console.log(registerForm.value);
 		store.dispatch('register', registerForm.value);
+    registerForm.value = {};
 	};
 </script>
 

@@ -37,3 +37,5 @@ client/.idea
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+./client/public/favicon.ico

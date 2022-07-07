@@ -2,6 +2,7 @@ import { createStore } from 'vuex'
 import stack from './modules/stack'
 import axios from "axios";
 import {server} from "../helper";
+import router from "../router";
 
 
 
@@ -26,36 +27,25 @@ const store = createStore({
            axios
                .post(`${server.baseURL}/api/auth/login`, data)
                .then((response) =>{
-                   commit('setUser', response.data );
-                   localStorage.setItem('user', JSON.stringify(response.data));
-           }).catch((error) => {
-               switch (error.code){
-                   case "401":
-                       console.log("Internal Server error");
-                       break;
-                   case "200":
-                       console.log("sucess");
-                       break;
-               }
+                   commit('setUser', response.data.loggedUser );
+                   localStorage.setItem('user', JSON.stringify(response.data.loggedUser));
+           }).catch((err) => {
+               console.log(err.status)
            });
+            await router.push("/");
 
         },
 
         async register({dispatch},data){
-            axios
-                .put(`${server.baseURL}/api/users/add/user`, data)
+           axios
+                .post(`${server.baseURL}/api/users/register`, data)
                 .then((response) =>{
-                    dispatch('login',response.data)
-            }).catch((error) => {
-                switch (error.code){
-                    case "401":
-                        console.log("Internal Server error");
-                        break;
-                    case "200":
-                        console.log("sucess");
-                        break;
-                }
+                    dispatch('login',response.data);
+            }).catch((err) => {
+                console.log(err.status);
             });
+
+            await router.push("/");
         },
 
         logout({commit}){
