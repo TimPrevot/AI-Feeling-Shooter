@@ -14,7 +14,7 @@ export class PredictionsController {
     private tweet_predService: Tweet_predService,
   ) {}
 
-  @Get('finance1d/repartition')
+  @Get('tweets/repartition')
   async getRepartition() {
     return await this.tweet_predService.getRepartition();
   }

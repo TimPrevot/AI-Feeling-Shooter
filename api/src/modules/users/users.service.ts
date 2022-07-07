@@ -1,4 +1,4 @@
-import {Injectable, Res} from '@nestjs/common';
+import { Injectable, Res } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Users, UsersDocument } from '../../../db/schemas/users.schema';
 import { CreateUserDto } from '../../../db/dtos/create-user.dto';
@@ -33,15 +33,24 @@ export class UsersService {
       rank: 0,
       username: await user.username,
       password: await this.hashIt(user.password),
-      isLoggedIn:false,
+      isLoggedIn: false,
     });
     const createdUser = { username: user.username, password: user.password };
-   res.send(createdUser);
+    res.send(createdUser);
   }
 
   async hashIt(password: string): Promise<string> {
     const salt = await bcrypt.genSalt(6);
     const hashed = await bcrypt.hash(password, salt);
     return hashed;
+  }
+
+  async changeRank(req: any) {
+    await this.usersModel.updateOne(
+      { username: req.userName },
+      {
+        rank: req.newRank,
+      },
+    );
   }
 }
