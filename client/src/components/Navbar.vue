@@ -53,6 +53,7 @@
           <button
               v-else
               @click="$store.dispatch('logout')"
+              class ="py-3 px-5 flex inline-flex ease-in duration-300 hover:bg-primary-500 rounded-lg"
           >
             Logout
           </button>

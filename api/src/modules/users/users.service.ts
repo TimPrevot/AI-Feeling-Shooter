@@ -33,6 +33,7 @@ export class UsersService {
       rank: 0,
       username: await user.username,
       password: await this.hashIt(user.password),
+      isLoggedIn:false,
     });
     const createdUser = { username: user.username, password: user.password };
    res.send(createdUser);
