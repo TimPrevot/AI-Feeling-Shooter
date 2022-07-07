@@ -6,11 +6,10 @@ import { Finance12_predService } from './finance12_pred.service';
 @Module({
   imports: [
     MongooseModule.forFeature([
-      { name: 'Finance1/2_pred', schema: Finance12_predSchema },
+      { name: 'finance1_2_pred', schema: Finance12_predSchema },
     ]),
   ],
-  controllers: [],
   providers: [Finance12_predService],
-  exports: [Finance12_predService],
+  exports: [Finance12_predService, MongooseModule],
 })
 export class Finance12_predModule {}
