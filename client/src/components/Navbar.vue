@@ -14,7 +14,7 @@
 						<ul class="flex gap-6">
 							<li>
 								<router-link
-									to="/home"
+									to="/"
 									class="py-3 px-5 flex inline-flex ease-in duration-300 hover:bg-primary-500 rounded-lg"
 								>
 									Home
