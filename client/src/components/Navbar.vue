@@ -1,24 +1,56 @@
 <script setup lang="ts"></script>
 
 <template>
-	<header>
-		<nav
-			class="flex flex-1 bg-gradient-to-b from-primary-300 to-primary-100 p-8"
-		>
-			<div class="flex flex-1 gap-10 justify-start items-center">
-				<div class="flex gap-1 items-center">
-					<img class="w-10" src="../assets/logo.png" alt="" />
-				</div>
-				<a href="/"> Home</a>
-				<a href="/about">About</a>
-				<a href="/contact">Contact</a>
+	<header class="bg-primary-100 w-full flex items-center">
+		<div class="w-full flex mx-2 items-center justify-between relative">
+			<div
+				class="bg-secondary-100 m-4 px-3 py-2 w-32 max-w-full rounded-lg"
+			>
+				<img src="../assets/logo.png" alt="logo" class="w-full" />
 			</div>
-			<div class="justify-end">
+			<div class="flex pr-4 justify-between items-center w-full">
 				<div>
-					<img class="w-10" src="../assets/logo.png" alt="" />
+					<nav class="absolute py-3 px-6 lg:static lg:shadow-none">
+						<ul class="flex gap-6">
+							<li>
+								<router-link
+									to="/"
+									class="py-3 px-5 flex inline-flex ease-in duration-300 hover:bg-primary-500 rounded-lg"
+								>
+									Home
+								</router-link>
+							</li>
+							<li>
+								<router-link
+									to="/pricing"
+									class="py-3 px-5 flex inline-flex ease-in duration-300 hover:bg-primary-500 rounded-lg"
+								>
+									Pricing
+								</router-link>
+							</li>
+						</ul>
+					</nav>
 				</div>
+				<ul class="flex gap-6 justify-end">
+					<li>
+						<router-link
+							to="/login"
+							class="py-3 px-5 ease-in duration-300 hover:bg-primary-500 rounded-lg"
+						>
+							Log In
+						</router-link>
+					</li>
+					<li>
+						<router-link
+							to="/register"
+							class="py-3 px-5 bg-primary-300 ease-in duration-100 hover:bg-primary-500 rounded-lg"
+						>
+							Sign Up
+						</router-link>
+					</li>
+				</ul>
 			</div>
-		</nav>
+		</div>
 	</header>
 </template>
 
