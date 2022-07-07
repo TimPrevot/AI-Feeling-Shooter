@@ -23,16 +23,18 @@ export class UsersService {
     return this.usersModel.findOne({ username: userName }).exec();
   }
 
-  async addOne(user: any): Promise<void> {
+  async addOne(user: any): Promise<any> {
     const nbUsers = (await this.usersModel.find().exec()).length;
     await this.create({
       userId: nbUsers + 1,
       firstName: await user.firstName,
       lastName: await user.lastName,
-      rank: await user.rank,
+      rank: 0,
       username: await user.username,
       password: await this.hashIt(user.password),
     });
+    const createdUser = { username: user.username, password: user.password };
+    return createdUser;
   }
 
   async hashIt(password: string): Promise<string> {
