@@ -3,7 +3,7 @@
 		<section
 			class="h-full w-full flex flex-wrap bg-secondary-100 items-center justify-center px-10"
 		>
-			<span class="w-full max-w-md py-5 px-10">
+			<span class="w-full h-full max-w-md py-5 px-10">
 				<div
 					class="mb-5 text-center inline-block max-w-[160px] mx-auto"
 				>
@@ -13,33 +13,17 @@
 					<div class="mb-6">
 						<input
 							type="text"
-							placeholder="First Name"
+							placeholder="Username"
 							class="text-primary-100 w-full rounded-md border border-1 border-primary-100 py-3 px-5 bg-secondary-300 placeholder-[#ACB6BE] outline-none focus-visible:shadow-none focus:border-primary"
-              v-model="registerForm.firstname"
+							v-model="registerForm.username"
 						/>
-					</div>
-          <div class="mb-6">
-						<input
-                type="text"
-                placeholder="Last Name"
-                class="text-primary-100 w-full rounded-md border border-1 border-primary-100 py-3 px-5 bg-secondary-300 placeholder-[#ACB6BE] outline-none focus-visible:shadow-none focus:border-primary"
-                v-model="registerForm.lastname"
-            />
-					</div>
-          <div class="mb-6">
-						<input
-                type="text"
-                placeholder="Username"
-                class="text-primary-100 w-full rounded-md border border-1 border-primary-100 py-3 px-5 bg-secondary-300 placeholder-[#ACB6BE] outline-none focus-visible:shadow-none focus:border-primary"
-                v-model="registerForm.username"
-            />
 					</div>
 					<div class="mb-6">
 						<input
 							type="password"
 							placeholder="Password"
 							class="text-primary-100 w-full rounded-md border border-1 border-primary-100 py-3 px-5 bg-secondary-300 text-base text-body-color placeholder-[#ACB6BE] outline-none focus-visible:shadow-none focus:border-primary"
-              v-model="registerForm.password"
+							v-model="registerForm.password"
 						/>
 					</div>
 					<div class="mb-6">
@@ -102,23 +86,20 @@
 	import { ref } from 'vue';
 	import { useStore } from 'vuex';
 
-  interface newUser {
-    firstname: string;
-    lastname: string;
-    username: string;
-    password: string;
-  }
+	interface newUser {
+		firstname: string;
+		lastname: string;
+		username: string;
+		password: string;
+	}
 
 	const store = useStore();
 	const registerForm = ref({});
 
-
-
-
 	const register = () => {
-    console.log(registerForm.value);
+		console.log(registerForm.value);
 		store.dispatch('register', registerForm.value);
-    registerForm.value = {};
+		registerForm.value = {};
 	};
 </script>
 
