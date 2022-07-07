@@ -6,9 +6,9 @@ import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 export class UsersController {
   constructor(private usersService: UsersService) {}
 
-  @UseGuards(JwtAuthGuard)
+  //@UseGuards(JwtAuthGuard)
   @Post('register')
   async registerUser(@Request() req) {
-    await this.usersService.addOne(req.body);
+    await this.usersService.addOne(req.query);
   }
 }
