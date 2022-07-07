@@ -4,26 +4,25 @@ import Register from '/src/components/Register.vue'
 import Login from '/src/components/Login.vue'
 
 const routes = [
-    {
-        path: "/",
-        name: "home",
-        component: Home,
-    },
-    {
-        path: "/register",
-        name: "register",
-        component: Register,
-    },
-    {
-        path: "/login",
-        name: "login",
-        component: Login,
-    },
-]
+	{
+		path: '/',
+		name: 'home',
+		component: Home,
+	},
+	{
+		path: '/register',
+		name: 'register',
+		component: Register,
+	},
+	{
+		path: '/login',
+		name: 'login',
+		component: Login,
+	},
+];
 const router = createRouter({
-    history: createWebHistory(),
-    routes,
-})
+	history: createWebHistory(),
+	routes,
+});
 
-
-export default router
+export default router;

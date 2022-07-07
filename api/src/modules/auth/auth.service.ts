@@ -24,8 +24,10 @@ export class AuthService {
       pwd: user.password,
       sub: user.username,
     };
+    const loggedUser = this.usersService.findByUsername(user.username);
     return {
       access_token: this.jwtService.sign(payload),
+      loggedUser,
     };
   }
 
