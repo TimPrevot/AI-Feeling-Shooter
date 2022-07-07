@@ -1,8 +1,8 @@
-<script setup lang="ts">
-	import LogReg from './LogReg.vue';
-</script>
+<script setup lang="ts"></script>
 <template>
-	<main class="flex-initial flex-col gap-2 items-center">
+	<main
+		class="bg-primary-100 h-full overflow-hidden flex-initial flex-col gap-2 items-center"
+	>
 		<section class="w-auto">
 			<h1 class="text-center">The best app in the world!</h1>
 			<p class="opacity-50 mb-4">
@@ -14,7 +14,6 @@
 		<section
 			class="flex items-center justify-center mx-auto text-center w-1/2"
 		>
-			<LogReg />
 			<img class="h-80" src="../assets/dashboard.png" alt="dashboard" />
 		</section>
 	</main>

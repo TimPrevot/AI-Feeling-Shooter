@@ -1,22 +1,18 @@
 <script setup lang="ts"></script>
 
 <template>
-	<header class="bg-white w-full flex items-center">
+	<header class="bg-primary-100 w-full flex items-center">
 		<div class="container">
 			<div class="flex mx-2 items-center justify-between relative">
-				<div class="px-4 w-40 max-w-full">
-					<a href="javascript:void(0)" class="w-full block py-5">
-						<img
-							src="../assets/logo.png"
-							alt="logo"
-							class="w-full"
-						/>
-					</a>
+				<div
+					class="bg-secondary-100 m-4 px-3 py-2 w-32 max-w-full rounded-lg"
+				>
+					<img src="../assets/logo.png" alt="logo" class="w-full" />
 				</div>
-				<div class="flex px-4 justify-between items-center w-full">
+				<div class="flex pr-4 justify-between items-center w-full">
 					<div>
 						<nav
-							class="absolute py-5 px-6 lg:static lg:shadow-none"
+							class="absolute py-3 px-6 lg:static lg:shadow-none"
 						>
 							<ul class="flex gap-6">
 								<li>
