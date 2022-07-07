@@ -7,7 +7,7 @@
 
 <template>
 	<Navbar />
-	<Home />
+	<router-view />
 </template>
 
 <style>

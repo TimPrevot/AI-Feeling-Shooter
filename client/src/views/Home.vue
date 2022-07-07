@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+	import LogReg from './LogReg.vue';
+</script>
 <template>
 	<main class="flex-initial flex-col gap-2 items-center">
 		<section class="w-auto">
@@ -12,6 +14,7 @@
 		<section
 			class="flex items-center justify-center mx-auto text-center w-1/2"
 		>
+			<LogReg />
 			<img class="h-80" src="../assets/dashboard.png" alt="dashboard" />
 		</section>
 	</main>
