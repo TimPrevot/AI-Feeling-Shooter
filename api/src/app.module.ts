@@ -8,6 +8,7 @@ import { UsersService } from './modules/users/users.service';
 import { JwtService } from '@nestjs/jwt';
 import { UsersModule } from './modules/users/users.module';
 import { AuthModule } from './modules/auth/auth.module';
+import { PredictionsModule } from './modules/predictions/predictions.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { AuthModule } from './modules/auth/auth.module';
     ConfigModule.forRoot(),
     UsersModule,
     AuthModule,
+    PredictionsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
