@@ -18,6 +18,12 @@ const store = createStore({
             state.user = user;
         },
 
+        setRank(state, newRank){
+            if (state.user){
+                state.user.rank = newRank
+            }
+        },
+
         clearUser(state){
             state.user = null;
         }
@@ -30,25 +36,25 @@ const store = createStore({
                    commit('setUser', response.data.loggedUser );
                    localStorage.setItem('user', JSON.stringify(response.data.loggedUser));
            }).catch((err) => {
-               console.log(err.status)
+               console.log(err)
            });
             await router.push("/");
 
         },
 
-        async register({dispatch},data){
+        async register({dispatch}, data){
            axios
                 .post(`${server.baseURL}/api/users/register`, data)
                 .then((response) =>{
                     dispatch('login',response.data);
             }).catch((err) => {
-                console.log(err.status);
+                console.log(err);
             });
 
             await router.push("/");
         },
 
-        async subscribe(data){
+        async subscribe({commit},data){
             axios
                 .patch(`${server.baseURL}/api/users/modify_rank`, data)
                 .then((response) =>{
@@ -56,7 +62,11 @@ const store = createStore({
                 }).catch((err) => {
                 console.log(err.status);
             });
+
+            commit('setRank', data.newRank);
         },
+
+
 
         logout({commit}){
             commit('clearUser')
