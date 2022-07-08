@@ -1,6 +1,11 @@
 <script setup lang="ts">
+import { useStore } from 'vuex';
+
+const store = useStore();
+
 	interface Props {
 		subscription: {
+      id:number;
 			tierName: string;
 			tierDescription: string;
 			pricePerYear: number;
@@ -8,6 +13,15 @@
 		};
 	}
 	const props = defineProps<Props>();
+
+  const subscribe = (data: number) =>{
+    const params = {
+      userName: store.state.user.username,
+      newRank: data,
+    }
+    console.log("Card params",params)
+    store.dispatch('subscribe', params)
+  }
 </script>
 <template>
 	<div
@@ -60,16 +74,17 @@
 			>
 				Already checkout
 			</p>
-			<p
+			<button
 				v-else-if="props.subscription.tierName === 'Medium'"
 				class="w-full bg-primary-300 text-secondary-100 block text-base font-semibold border border-[#D4DEFF] rounded-md text-center p-4 hover:text-secondary-100 hover:bg-primary-500 hover:border-primary-500 transition ease-in duration-600"
+        @click="subscribe(props.subscription.id)"
 			>
 				Choose {{ props.subscription.tierName }}
-			</p>
+			</button>
 			<button
 				v-else
 				class="w-full font-semibold border border-2 border-primary-300 rounded-md text-center p-4 hover:text-secondary-100 hover:bg-primary-500 hover:border-primary-500 transition ease-in duration-600"
-				@click="$store.dispatch('subscribe', 2)"
+				@click="subscribe(props.subscription.id)"
 			>
 				Choose {{ props.subscription.tierName }}
 			</button>

@@ -18,4 +18,9 @@ export class PredictionsController {
   async getRepartition() {
     return await this.tweet_predService.getRepartition();
   }
+
+  @Get('finance1d/get_close')
+  async getCloseValues() {
+    return await this.finance1d_predService.getCloseValues();
+  }
 }
