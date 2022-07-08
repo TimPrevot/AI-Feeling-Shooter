@@ -1,11 +1,13 @@
 <template>
 	<main class="h-full">
-		<section class="h-full w-full flex flex-wrap bg-secondary-100 items-center justify-center px-10">
+		<section
+			class="h-full w-full flex flex-wrap bg-primary-400 items-center justify-center px-10"
+		>
 			<div class="container">
 				<div class="flex flex-wrap">
 					<div class="w-full">
 						<div
-							class="max-w-md mx-auto relative overflow-hidden py-5 px-10"
+							class="max-w-md mx-auto my-4 bg-secondary-100 relative overflow-hidden py-3 px-10 rounded-xl"
 						>
 							<div
 								class="mb-5 text-center inline-block max-w-[160px] mx-auto"
@@ -18,7 +20,7 @@
 										type="text"
 										placeholder="Username"
 										class="text-primary-100 w-full rounded-md border border-1 border-primary-100 py-3 px-5 bg-secondary-300 placeholder-[#ACB6BE] outline-none focus-visible:shadow-none focus:border-primary"
-                    v-model="loginForm.username"
+										v-model="loginForm.username"
 									/>
 								</div>
 								<div class="mb-6">
@@ -26,7 +28,7 @@
 										type="password"
 										placeholder="Password"
 										class="text-primary-100 w-full rounded-md border border-1 border-primary-100 py-3 px-5 bg-secondary-300 text-base text-body-color placeholder-[#ACB6BE] outline-none focus-visible:shadow-none focus:border-primary"
-                    v-model="loginForm.password"
+										v-model="loginForm.password"
 									/>
 								</div>
 								<div class="mb-6">
@@ -106,10 +108,8 @@
 	const store = useStore();
 	const loginForm = ref({});
 
-
-
 	const login = () => {
-    console.log(loginForm.value)
+		console.log(loginForm.value);
 		store.dispatch('login', loginForm.value);
 	};
 </script>
