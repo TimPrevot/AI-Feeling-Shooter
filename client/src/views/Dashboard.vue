@@ -3,8 +3,6 @@
 	import { useStore } from 'vuex';
 	import ChartLine from '../components/ChartLine.vue';
 	import ChartPie from '../components/ChartPie.vue';
-	// interface Props {}
-	// const props = defineProps<Props>();
 
 	const store = useStore();
 
