@@ -21,17 +21,20 @@ export class Finance1d_predService {
     const preds = await this.findAll();
     const close_values = [];
     const predicted_values = [];
+    const dates = [];
     for (let i = 0; i < preds.length; i++) {
       if (isNaN(preds[i].Close) || isNaN(preds[i].Predicted_Close)) {
         continue;
       } else {
         close_values.push(preds[i].Close);
         predicted_values.push(preds[i].Predicted_Close);
+        dates.push(preds[i].Date.toDateString());
       }
     }
     return {
       close_values,
       predicted_values,
+      dates,
     };
   }
 }
