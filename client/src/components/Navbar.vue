@@ -4,13 +4,13 @@
 	<header class="bg-primary-100 w-full flex items-center">
 		<div class="w-full flex mx-2 items-center justify-between relative">
 			<div
-				class="bg-secondary-100 m-4 px-3 py-2 w-32 max-w-full rounded-lg"
+				class="bg-secondary-100 mx-4 px-3 py-2 w-32 max-w-full rounded-lg"
 			>
 				<img src="../assets/logo.png" alt="logo" class="w-full" />
 			</div>
 			<div class="flex pr-4 justify-between items-center w-full">
 				<div>
-					<nav class="absolute py-3 px-6 lg:static lg:shadow-none">
+					<nav class="absolute py-2 px-6 lg:static lg:shadow-none">
 						<ul class="flex gap-6">
 							<li>
 								<router-link

@@ -11,7 +11,7 @@
 </script>
 <template>
 	<div
-		class="flex flex-col place-content-around bg-secondary-100 w-1/3 mx-10 my-6 py-2 px-8 rounded-xl relative z-10 lg:py-10"
+		class="max-h-[650px] max-w-[450px] flex flex-col place-content-around bg-secondary-100 w-1/3 mx-10 my-6 px-8 rounded-xl relative z-10 lg:py-4 2xl:py-10"
 	>
 		<span class="text-primary font-semibold text-lg block mb-4">
 			{{ props.subscription.tierName }}
@@ -20,7 +20,9 @@
 			${{ props.subscription.pricePerYear }}
 			<span class="text-base font-medium"> / year </span>
 		</h2>
-		<p class="text-base text-body-color pb-4 mb-4 border-b border-[#F2F2F2">
+		<p
+			class="text-base text-body-color pb-4 mb-4 border-b border-primary-500"
+		>
 			{{ props.subscription.tierDescription }}
 		</p>
 		<div class="mb-7">
@@ -34,14 +36,14 @@
 		<a
 			v-if="props.subscription.tierName === 'Business'"
 			href="javascript:void(0)"
-			class="w-full bg-primary-500 text-secondary-100 block text-base font-semibold border border-[#D4DEFF] rounded-md text-center p-4 hover:text-white hover:bg-primary hover:border-primary transition"
+			class="w-full bg-primary-300 text-secondary-100 block text-base font-semibold border border-[#D4DEFF] rounded-md text-center p-4 hover:text-secondary-100 hover:bg-primary-500 hover:border-primary-500 transition ease-in duration-600"
 		>
 			Choose {{ props.subscription.tierName }}
 		</a>
 		<a
 			v-else
 			href="javascript:void(0)"
-			class="w-full block text-base font-semibold border border-[#D4DEFF] rounded-md text-center p-4 hover:text-white hover:bg-primary hover:border-primary transition"
+			class="w-full font-semibold border border-2 border-primary-300 rounded-md text-center p-4 hover:text-secondary-100 hover:bg-primary-500 hover:border-primary-500 transition ease-in duration-600"
 		>
 			Choose {{ props.subscription.tierName }}
 		</a>

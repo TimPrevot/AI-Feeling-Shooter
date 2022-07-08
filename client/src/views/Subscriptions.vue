@@ -28,7 +28,7 @@
 </script>
 <template>
 	<div
-		class="w-full h-full bg-primary-100 text-primary-100 flex place-content-around"
+		class="w-full h-full bg-primary-400 text-primary-100 flex place-content-around items-center"
 	>
 		<Card
 			v-for="subscription in subscriptions"
