@@ -13,6 +13,7 @@
 	});
 
 	const sentiment = computed(() => store.state.sentiments);
+	const user = computed(() => store.state.user);
 
 	const chartDataLine = {
 		labels: ['VueJs', 'EmberJs', 'ReactJs', 'AngularJs'],
@@ -102,7 +103,7 @@
 				:width="width"
 			/>
 		</div>
-		<div class="bg-secondary-100 p-5 rounded-lg">
+		<div v-if="!user.rank === 0" class="bg-secondary-100 p-5 rounded-lg">
 			<ChartPie
 				:chart-data="chartDataSentiment"
 				:chart-options="chartOptionsSentiment"
