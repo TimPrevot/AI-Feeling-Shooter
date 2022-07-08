@@ -6,9 +6,10 @@ import { Tweet_predService } from './tweet_pred.service';
 @Module({
   imports: [
     MongooseModule.forFeature([
-      { name: 'Tweet_pred', schema: Tweet_predSchema },
+      { name: 'tweet_pred', schema: Tweet_predSchema },
     ]),
   ],
   providers: [Tweet_predService],
+  exports: [Tweet_predService, MongooseModule],
 })
 export class Tweet_predModule {}

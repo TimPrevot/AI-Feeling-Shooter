@@ -6,7 +6,7 @@ import { Model } from 'mongoose';
 @Injectable()
 export class Finance2m_predService {
   constructor(
-    @InjectModel('Finance2m_pred')
+    @InjectModel('finance2m_pred')
     private finance2m_predModel: Model<Finance2m_pred>,
   ) {}
 
