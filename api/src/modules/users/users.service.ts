@@ -20,16 +20,16 @@ export class UsersService {
     return this.usersModel.find().exec();
   }
 
-  async findByUsername(userName: string): Promise<Users> {
-    return this.usersModel.findOne({ username: userName }).exec();
+  async findByUsername(username: string): Promise<Users> {
+    return this.usersModel.findOne({ username: username }).exec();
   }
 
   async addOne(user: any, @Res() res: Response): Promise<any> {
     const nbUsers = (await this.usersModel.find().exec()).length;
     await this.create({
       userId: nbUsers + 1,
-      firstName: await user.firstName,
-      lastName: await user.lastName,
+      firstname: await user.firstname,
+      lastname: await user.lastname,
       rank: 0,
       username: await user.username,
       password: await this.hashIt(user.password),
@@ -47,7 +47,7 @@ export class UsersService {
 
   async changeRank(req: any) {
     await this.usersModel.updateOne(
-      { username: req.userName },
+      { username: req.username },
       {
         rank: req.newRank,
       },

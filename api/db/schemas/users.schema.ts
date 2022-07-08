@@ -8,10 +8,10 @@ export class Users {
   userId: number;
 
   @Prop()
-  firstName: string;
+  firstname: string;
 
   @Prop()
-  lastName: string;
+  lastname: string;
 
   @Prop()
   rank: number;

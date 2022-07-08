@@ -1,14 +1,14 @@
-import {IsBoolean, IsNumber, IsString} from 'class-validator';
+import { IsBoolean, IsNumber, IsString } from 'class-validator';
 
 export class CreateUserDto {
   @IsNumber()
   userId: number;
 
   @IsString()
-  firstName: string;
+  firstname: string;
 
   @IsString()
-  lastName: string;
+  lastname: string;
 
   @IsNumber()
   rank: number;
