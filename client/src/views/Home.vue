@@ -7,7 +7,7 @@
 			<h1 class="text-center m-2 text-2xl">
 				AI Feeling Shooter Dashboard
 			</h1>
-			<p class="mx-40 my-10">
+			<p class="mx-40 my-5">
 				Become a trader today ! With AI Feeling Shooter, you can easily
 				make your money work for you, and become a serial boursicoteur !
 				With our AI-powered predictions, always be a step ahead of the
