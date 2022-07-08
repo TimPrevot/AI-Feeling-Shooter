@@ -8,20 +8,20 @@
 
 	const store = useStore();
 
-onBeforeMount(()=> {
-  store.dispatch('getSentiments');
-  store.dispatch('getClose');
-})
+	onBeforeMount(() => {
+		store.dispatch('getSentiments');
+		store.dispatch('getClose');
+	});
 
-  const sentiment = computed(() => store.state.sentiments);
+	const sentiment = computed(() => store.state.sentiments);
 
-  const close = computed(() => store.state.closes);
+	const user = computed(() => store.state.user);
 
-  const predicted = computed(() => store.state.predicted);
+	const close = computed(() => store.state.closes);
 
   const dates = computed(() => store.state.dates);
 
-
+   const predicted = computed(() => store.state.predicted);
 
 	const chartDataLine = {
 		labels: [dates.value[0],dates.value[1],dates.value[2],dates.value[3],dates.value[4],dates.value[5]],
@@ -29,13 +29,27 @@ onBeforeMount(()=> {
 			{
 				label: 'Close Values',
 				borderColor: '#f4db7d',
-				data: [close.value[0],close.value[1],close.value[2],close.value[3],close.value[4],close.value[5]],
+				data: [
+					close.value[0],
+					close.value[1],
+					close.value[2],
+					close.value[3],
+					close.value[4],
+					close.value[5],
+				],
 			},
-      {
-        label: 'Predicted Values ',
-        borderColor: '#E46651',
-        data: [predicted.value[0],predicted.value[1],predicted.value[2],predicted.value[3],predicted.value[4],predicted.value[5]],
-      },
+			{
+				label: 'Predicted Values ',
+				borderColor: '#E46651',
+				data: [
+					predicted.value[0],
+					predicted.value[1],
+					predicted.value[2],
+					predicted.value[3],
+					predicted.value[4],
+					predicted.value[5],
+				],
+			},
 		],
 	};
 
@@ -55,8 +69,7 @@ onBeforeMount(()=> {
 		],
 	};
 
-  
-  const chartOptionsLine = {
+	const chartOptionsLine = {
 		responsive: false,
 		maintainAspectRatio: false,
 		plugins: {
