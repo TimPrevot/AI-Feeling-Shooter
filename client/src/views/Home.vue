@@ -1,14 +1,19 @@
 <script setup lang="ts"></script>
 <template>
 	<main
-		class="bg-primary-100 h-full overflow-hidden flex-initial flex-col gap-2 items-center"
+		class="bg-primary-400 flex h-full overflow-hidden flex-initial flex-col gap-2 items-center justify-center"
 	>
 		<section class="w-auto">
-			<h1 class="text-center">The best app in the world!</h1>
-			<p class="opacity-50 mb-4">
-				This app helps you discover all the forests arround in order to
-				reconnect with the nature. Download the app and escape from the
-				urban chaos!
+			<h1 class="text-center m-2 text-2xl">
+				AI Feeling Shooter Dashboard
+			</h1>
+			<p class="mx-40 my-10">
+				Become a trader today ! With AI Feeling Shooter, you can easily
+				make your money work for you, and become a serial boursicoteur !
+				With our AI-powered predictions, always be a step ahead of the
+				market and become the next Jordan Belfort ! Try it today for
+				free, or subscribe to one of our very advantageous premium plans
+				to get even more amazing features !
 			</p>
 		</section>
 		<section
