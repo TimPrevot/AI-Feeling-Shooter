@@ -19,13 +19,12 @@ onBeforeMount(()=> {
 
   const predicted = computed(() => store.state.predicted);
 
-
-  const closes = [];
-  const predicteds = [];
+  const dates = computed(() => store.state.dates);
 
 
-	const chartData = {
-		labels: [0,0,0,0,0,0],
+
+	const chartDataLine = {
+		labels: [dates.value[0],dates.value[1],dates.value[2],dates.value[3],dates.value[4],dates.value[5]],
 		datasets: [
 			{
 				label: 'Close Values',
@@ -118,7 +117,7 @@ onBeforeMount(()=> {
 				:width="width"
 			/>
 		</div>
-		<div v-if="!user.rank == 0" class="bg-secondary-100 p-5 rounded-lg">
+		<div class="bg-secondary-100 p-5 rounded-lg">
 			<ChartPie
 				:chart-data="chartDataSentiment"
 				:chart-options="chartOptionsSentiment"

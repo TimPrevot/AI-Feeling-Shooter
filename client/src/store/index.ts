@@ -9,7 +9,8 @@ const store = createStore({
         user: JSON.parse(localStorage.getItem('user')),
         sentiments:{},
         closes : {},
-        predicted: {}
+        predicted: {},
+        dates: {}
     },
     modules: {
         stack,
@@ -40,6 +41,10 @@ const store = createStore({
 
         setPredicted(state, data){
             state.predicted = data;
+        },
+
+        setDates(state, data){
+            state.dates = data
         },
 
         clearUser(state){
@@ -100,6 +105,7 @@ const store = createStore({
                 .then((response) =>{
                     commit('setCloses', response.data.close_values) ;
                     commit('setPredicted', response.data.predicted_values);
+                    commit('setDates', response.data.dates);
                 }).catch((err) => {
                 console.log(err.status);
             });
