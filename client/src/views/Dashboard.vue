@@ -10,20 +10,35 @@
 
 onBeforeMount(()=>{
   store.dispatch('getSentiments');
+  store.dispatch('getClose');
 })
 
 
   const sentiment = computed(() => store.state.sentiments);
+  const close = computed(() => store.state.closes);
+
+  console.log(close.value.close_values);
+
+  const closes =[]
+  const predicted = []
+
+
+
+console.log(closes)
 
 	const chartData = {
-		labels: ['VueJs', 'EmberJs', 'ReactJs', 'AngularJs'],
+		labels: [],
 		datasets: [
 			{
-				label: 'Data One',
+				label: 'Close Values',
 				borderColor: '#f4db7d',
-				backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16'],
-				data: [40, 20, 80, 10],
+				data: closes,
 			},
+      {
+        label: 'Predicted Values ',
+        borderColor: '#E46651',
+        data: predicted,
+      },
 		],
 	};
 
@@ -38,6 +53,17 @@ onBeforeMount(()=>{
 			},
 		],
 	};
+
+
+  for (const i of close.value.close_values){
+    closes.push(i)
+  }
+
+  for (const i of close.value.predicted_values){
+    let count = 0
+    predicted.push(i)
+    chartData.labels.push(count++)
+  }
 
 	// Calls axios to get the sentiment data from the server.
 
