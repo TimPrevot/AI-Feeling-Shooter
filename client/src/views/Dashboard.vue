@@ -70,7 +70,7 @@
 	};
 
 	const chartOptionsLine = {
-		responsive: false,
+		responsive: true,
 		maintainAspectRatio: false,
 		plugins: {
 			title: {
@@ -119,9 +119,7 @@
 	const width = 400;
 </script>
 <template>
-	<div
-		class="bg-primary-400 h-full py-5 overflow-hidden flex flex-col place-content-around items-center"
-	>
+	<div class="bg-primary-400 h-full py-5 flex justify-around items-center">
 		<div class="bg-secondary-100 p-5 rounded-lg">
 			<ChartLine
 				:chart-data="chartDataLine"
