@@ -8,9 +8,10 @@ import router from "../router";
 
 const store = createStore({
     state:{
-        user: localStorage.getItem('user'),
+        user: JSON.parse(localStorage.getItem('user')),
         sentiments:{},
-        closes : {}
+        closes : {},
+        predicted: {}
     },
     modules: {
         stack,
@@ -37,6 +38,10 @@ const store = createStore({
 
         setCloses(state, data){
             state.closes = data;
+        },
+
+        setPredicted(state, data){
+            state.predicted = data;
         },
 
         clearUser(state){
@@ -95,15 +100,16 @@ const store = createStore({
             axios
                 .get(`${server.baseURL}/api/predictions/finance1d/get_close`)
                 .then((response) =>{
-                    commit('setCloses', response.data) ;
+                    commit('setCloses', response.data.close_values) ;
+                    commit('setPredicted', response.data.predicted_values);
                 }).catch((err) => {
                 console.log(err.status);
             });
         },
 
         logout({commit}){
-            commit('clearUser')
-            localStorage.removeItem('user')
+            commit('clearUser');
+            localStorage.removeItem('user');
         }
     },
     plugins:[],

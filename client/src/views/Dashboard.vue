@@ -15,29 +15,28 @@ onBeforeMount(()=>{
 
 
   const sentiment = computed(() => store.state.sentiments);
+
   const close = computed(() => store.state.closes);
 
-  console.log(close.value.close_values);
-
-  const closes =[]
-  const predicted = []
+  const predicted = computed(() => store.state.predicted);
 
 
+  const closes = [];
+  const predicteds = [];
 
-console.log(closes)
 
 	const chartData = {
-		labels: [],
+		labels: [0,0,0,0,0,0],
 		datasets: [
 			{
 				label: 'Close Values',
 				borderColor: '#f4db7d',
-				data: closes,
+				data: [close.value[0],close.value[1],close.value[2],close.value[3],close.value[4],close.value[5]],
 			},
       {
         label: 'Predicted Values ',
         borderColor: '#E46651',
-        data: predicted,
+        data: [predicted.value[0],predicted.value[1],predicted.value[2],predicted.value[3],predicted.value[4],predicted.value[5]],
       },
 		],
 	};
@@ -55,15 +54,15 @@ console.log(closes)
 	};
 
 
-  for (const i of close.value.close_values){
+  /*for (const i of temp_closes){
     closes.push(i)
   }
 
-  for (const i of close.value.predicted_values){
+  for (const i of temp_predicted){
     let count = 0
     predicted.push(i)
-    chartData.labels.push(count++)
-  }
+    chartData.labels.push(count)
+  }*/
 
 	// Calls axios to get the sentiment data from the server.
 
