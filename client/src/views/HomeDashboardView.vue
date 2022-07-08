@@ -8,6 +8,6 @@
 
 <template>
 	<Dashboard v-if="user" />
-	<Home v-else class="" />
+	<Home v-else />
 </template>
 <style lang="scss"></style>
