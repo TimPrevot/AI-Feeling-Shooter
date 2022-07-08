@@ -9,9 +9,15 @@ import router from "../router";
 const store = createStore({
     state:{
         user: localStorage.getItem('user'),
+        sentiments:{}
     },
     modules: {
         stack,
+    },
+    getters: {
+        getSentiments(state){
+            return state.sentiments;
+        }
     },
     mutations: {
         setUser(state, user){
@@ -20,8 +26,12 @@ const store = createStore({
 
         setRank(state, newRank){
             if (state.user){
-                state.user.rank = newRank
+                state.user.rank = newRank;
             }
+        },
+
+        setSentiments(state, data){
+            state.sentiments = data;
         },
 
         clearUser(state){
@@ -66,7 +76,15 @@ const store = createStore({
             commit('setRank', data.newRank);
         },
 
-
+        async getSentiments({commit}){
+            axios
+                .get(`${server.baseURL}/api/predictions/tweets/repartition`)
+                .then((response) =>{
+                      commit('setSentiments', response.data) ;
+                }).catch((err) => {
+                console.log(err.status);
+            });
+        },
 
         logout({commit}){
             commit('clearUser')
