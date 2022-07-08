@@ -1,6 +1,11 @@
 <script setup lang="ts">
+import { useStore } from 'vuex';
+
+const store = useStore();
+
 	interface Props {
 		subscription: {
+      id:number;
 			tierName: string;
 			tierDescription: string;
 			pricePerYear: number;
@@ -8,6 +13,15 @@
 		};
 	}
 	const props = defineProps<Props>();
+
+  const subscribe = (data: number) =>{
+    const params = {
+      userName: store.state.user.username,
+      newRank: data,
+    }
+    console.log("Card params",params)
+    store.dispatch('subscribe', params)
+  }
 </script>
 <template>
 	<div
@@ -58,7 +72,7 @@
       <button
           v-else
           class="w-full block text-base font-semibold border border-[#D4DEFF] rounded-md text-center p-4 hover:text-white hover:bg-primary hover:border-primary transition"
-          @click="$store.dispatch('subscribe',2)"
+          @click="subscribe(props.subscription.id)"
       >
         Choose {{ props.subscription.tierName }}
       </button>

@@ -4,6 +4,7 @@
 	// const props = defineProps<Props>();
 	const subscriptions = [
 		{
+      id : 0,
 			tierName: 'Beginner',
 			tierDescription:
 				'Discover boursicotage',
@@ -11,6 +12,7 @@
 			features: ['1 User', 'Classical prediction', 'Lifetime access'],
 		},
 		{
+      id: 1,
 			tierName: 'Medium',
 			tierDescription:
 				'A good investment for the medium boursicoteur',
@@ -18,6 +20,7 @@
 			features: ['1 User', 'All UI components', 'Daily check'],
 		},
 		{
+      id: 2,
 			tierName: 'Professional',
 			tierDescription:
 				'The perfect offer for a boursicotage master',
