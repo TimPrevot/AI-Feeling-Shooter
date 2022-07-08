@@ -1,10 +1,8 @@
-import { createStore } from 'vuex'
-import stack from './modules/stack'
-import axios from "axios";
-import {server} from "../helper";
-import router from "../router";
-
-
+import { createStore } from 'vuex';
+import stack from './modules/stack';
+import axios from 'axios';
+import { server } from '../helper';
+import router from '../router';
 
 const store = createStore({
     state:{
