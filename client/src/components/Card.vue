@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { useStore } from 'vuex';
+	import { useStore } from 'vuex';
 
-const store = useStore();
+	const store = useStore();
 
 	interface Props {
 		subscription: {
-      id:number;
+			id: number;
 			tierName: string;
 			tierDescription: string;
 			pricePerYear: number;
@@ -14,14 +14,15 @@ const store = useStore();
 	}
 	const props = defineProps<Props>();
 
-  const subscribe = (data: number) =>{
-    const params = {
-      userName: store.state.user.username,
-      newRank: data,
-    }
-    console.log("Card params",params)
-    store.dispatch('subscribe', params)
-  }
+	const subscribe = (data: number) => {
+		const params = {
+			userName: store.state.user.username,
+			newRank: data,
+		};
+		console.log('Card params', params);
+		store.dispatch('subscribe', params);
+		alert('You have successfully subscribed!');
+	};
 </script>
 <template>
 	<div
@@ -37,8 +38,8 @@ const store = useStore();
 			Free
 		</h2>
 		<h2 v-else class="font-bold text-dark mb-5 text-[42px]">
-			${{ props.subscription.pricePerYear }}
-			<span class="text-base font-medium"> / year </span>
+			{{ props.subscription.pricePerYear }} €
+			<span class="text-base font-medium"> / month </span>
 		</h2>
 		<p
 			class="text-base text-body-color pb-4 mb-4 border-b border-primary-500"
@@ -77,7 +78,7 @@ const store = useStore();
 			<button
 				v-else-if="props.subscription.tierName === 'Medium'"
 				class="w-full bg-primary-300 text-secondary-100 block text-base font-semibold border border-[#D4DEFF] rounded-md text-center p-4 hover:text-secondary-100 hover:bg-primary-500 hover:border-primary-500 transition ease-in duration-600"
-        @click="subscribe(props.subscription.id)"
+				@click="subscribe(props.subscription.id)"
 			>
 				Choose {{ props.subscription.tierName }}
 			</button>

@@ -79,6 +79,7 @@
 		},
 		plugins: {
 			legend: {
+				display: true,
 				position: 'top',
 			},
 			title: {
@@ -103,7 +104,7 @@
 				:width="width"
 			/>
 		</div>
-		<div v-if="!user.rank === 0" class="bg-secondary-100 p-5 rounded-lg">
+		<div v-if="!user.rank == 0" class="bg-secondary-100 p-5 rounded-lg">
 			<ChartPie
 				:chart-data="chartDataSentiment"
 				:chart-options="chartOptionsSentiment"
