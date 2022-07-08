@@ -8,22 +8,36 @@
 
 	const store = useStore();
 
-	onBeforeMount(() => {
-		store.dispatch('getSentiments');
-	});
+onBeforeMount(()=> {
+  store.dispatch('getSentiments');
+  store.dispatch('getClose');
+})
 
-	const sentiment = computed(() => store.state.sentiments);
-	const user = computed(() => store.state.user);
+  const sentiment = computed(() => store.state.sentiments);
+  const close = computed(() => store.state.closes);
 
-	const chartDataLine = {
-		labels: ['VueJs', 'EmberJs', 'ReactJs', 'AngularJs'],
+  console.log(close.value.close_values);
+
+  const closes =[]
+  const predicted = []
+
+
+
+console.log(closes)
+
+	const chartData = {
+		labels: [],
 		datasets: [
 			{
-				// label: 'Data One',
-				// borderColor: '#f4db7d',
-				// backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16'],
-				// data: [40, 20, 80, 10],
+				label: 'Close Values',
+				borderColor: '#f4db7d',
+				data: closes,
 			},
+      {
+        label: 'Predicted Values ',
+        borderColor: '#E46651',
+        data: predicted,
+      },
 		],
 	};
 
@@ -43,7 +57,19 @@
 		],
 	};
 
-	const chartOptionsLine = {
+
+
+  for (const i of close.value.close_values){
+    closes.push(i)
+  }
+
+  for (const i of close.value.predicted_values){
+    let count = 0
+    predicted.push(i)
+    chartData.labels.push(count++)
+  }
+  
+  const chartOptionsLine = {
 		responsive: false,
 		maintainAspectRatio: false,
 		plugins: {
