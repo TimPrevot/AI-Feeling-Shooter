@@ -8,6 +8,13 @@
 
 	const store = useStore();
 
+onBeforeMount(()=>{
+  store.dispatch('getSentiments');
+})
+
+
+  const sentiment = computed(() => store.state.sentiments);
+
 	const chartData = {
 		labels: ['VueJs', 'EmberJs', 'ReactJs', 'AngularJs'],
 		datasets: [
@@ -27,21 +34,15 @@
 				label: 'Data One',
 
 				backgroundColor: ['#41B883', '#E46651', '#9b9b9b'],
-				data: [
-					this.sentiments.value.positive,
-					this.sentiments.value.negative,
-					this.sentiments.value.neutral,
-				],
+				data: [sentiment.value.positives,sentiment.value.negatives,sentiment.value.neutrals],
 			},
 		],
 	};
 
 	// Calls axios to get the sentiment data from the server.
-	onBeforeMount(async () => {
-		store.dispatch('getSentiment');
-	});
 
-	const sentiments = computed(() => store.getters.sentiments);
+
+
 
 	// const chartOptions = {
 	// 	responsive: false,
