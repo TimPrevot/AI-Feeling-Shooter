@@ -4,25 +4,22 @@
 	// const props = defineProps<Props>();
 	const subscriptions = [
 		{
-			tierName: 'Personal',
-			tierDescription:
-				'Perfect for using in a personal website or a client project.',
-			pricePerYear: 59,
-			features: ['1 User', 'All UI components', 'Lifetime access'],
+			tierName: 'Beginner',
+			tierDescription: 'A good start on the journey of boursicotage',
+			pricePerYear: 0,
+			features: ['1 User', 'Classical prediction', 'Lifetime access'],
 		},
 		{
-			tierName: 'Business',
-			tierDescription:
-				'Perfect for using in a business website or a client project.',
+			tierName: 'Medium',
+			tierDescription: 'A good investment for the medium boursicoteur',
+			pricePerYear: 49,
+			features: ['1 User', 'All charts', 'Daily check'],
+		},
+		{
+			tierName: 'Professional',
+			tierDescription: 'The perfect offer for a boursicotage master',
 			pricePerYear: 99,
-			features: ['5 Users', 'All UI components', 'Lifetime access'],
-		},
-		{
-			tierName: 'Enterprise',
-			tierDescription:
-				'Perfect for using in a enterprise website or a client project.',
-			pricePerYear: 199,
-			features: ['10 Users', 'All UI components', 'Lifetime access'],
+			features: ['1 User', 'All charts', 'Check every 2 hours'],
 		},
 	];
 </script>
