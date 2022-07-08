@@ -9,7 +9,8 @@ import router from "../router";
 const store = createStore({
     state:{
         user: localStorage.getItem('user'),
-        sentiments:{}
+        sentiments:{},
+        closes : {}
     },
     modules: {
         stack,
@@ -32,6 +33,10 @@ const store = createStore({
 
         setSentiments(state, data){
             state.sentiments = data;
+        },
+
+        setCloses(state, data){
+            state.closes = data;
         },
 
         clearUser(state){
@@ -81,6 +86,16 @@ const store = createStore({
                 .get(`${server.baseURL}/api/predictions/tweets/repartition`)
                 .then((response) =>{
                       commit('setSentiments', response.data) ;
+                }).catch((err) => {
+                console.log(err.status);
+            });
+        },
+
+        async getClose({commit}){
+            axios
+                .get(`${server.baseURL}/api/predictions/finance1d/get_close`)
+                .then((response) =>{
+                    commit('setCloses', response.data) ;
                 }).catch((err) => {
                 console.log(err.status);
             });
