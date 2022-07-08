@@ -8,21 +8,20 @@
 
 	const store = useStore();
 
-onBeforeMount(()=>{
-  store.dispatch('getSentiments');
-})
+	onBeforeMount(() => {
+		store.dispatch('getSentiments');
+	});
 
+	const sentiment = computed(() => store.state.sentiments);
 
-  const sentiment = computed(() => store.state.sentiments);
-
-	const chartData = {
+	const chartDataLine = {
 		labels: ['VueJs', 'EmberJs', 'ReactJs', 'AngularJs'],
 		datasets: [
 			{
-				label: 'Data One',
-				borderColor: '#f4db7d',
-				backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16'],
-				data: [40, 20, 80, 10],
+				// label: 'Data One',
+				// borderColor: '#f4db7d',
+				// backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16'],
+				// data: [40, 20, 80, 10],
 			},
 		],
 	};
@@ -34,45 +33,56 @@ onBeforeMount(()=>{
 				label: 'Data One',
 
 				backgroundColor: ['#41B883', '#E46651', '#9b9b9b'],
-				data: [sentiment.value.positives,sentiment.value.negatives,sentiment.value.neutrals],
+				data: [
+					sentiment.value.positives,
+					sentiment.value.negatives,
+					sentiment.value.neutrals,
+				],
 			},
 		],
 	};
 
-	// Calls axios to get the sentiment data from the server.
+	const chartOptionsLine = {
+		responsive: false,
+		maintainAspectRatio: false,
+		plugins: {
+			title: {
+				display: true,
+				text: 'Stock Market Close & Predicted Close',
+			},
+		},
+		scales: {
+			x: {
+				title: {
+					display: true,
+					text: 'Time',
+				},
+			},
+			y: {
+				title: {
+					display: true,
+					text: 'Value($)',
+				},
+			},
+		},
+	};
 
-
-
-
-	// const chartOptions = {
-	// 	responsive: false,
-	// 	maintainAspectRatio: false,
-	// 	plugins: {
-	// 		title: {
-	// 			display: true,
-	// 			text: 'Chart.js Line Chart',
-	// 		},
-	// 	},
-	// 	scales: {
-	// 		y: {
-	// 			title: {
-	// 				color: 'red',
-	// 				display: true,
-	// 				text: 'probability',
-	// 			},
-	// 		},
-	// 	},
-	// };
-
-	const chartOptions = {
+	const chartOptionsSentiment = {
 		responsive: false,
 		maintainAspectRatio: false,
 		scales: {
-			x: {
-				grid: { display: false },
+			display: false,
+		},
+		options: {
+			responsive: true,
+		},
+		plugins: {
+			legend: {
+				position: 'top',
 			},
-			y: {
-				grid: { display: false },
+			title: {
+				display: true,
+				text: 'Sentiment Analysis',
 			},
 		},
 	};
@@ -82,24 +92,24 @@ onBeforeMount(()=>{
 </script>
 <template>
 	<div
-		class="bg-primary-400 h-full py-5 overflow-hidden flex flex-inline place-content-around"
+		class="bg-primary-400 h-full py-5 overflow-hidden flex flex-col place-content-around items-center"
 	>
-		<ChartLine
-			:chart-data="chartData"
-			:chart-options="chartOptions"
-			:height="height"
-			:width="width"
-		/>
-		<ChartPie
-			:chart-data="chartDataSentiment"
-			:chart-options="chartOptions"
-			:height="height"
-			:width="width"
-		/>
+		<div class="bg-secondary-100 p-5 rounded-lg">
+			<ChartLine
+				:chart-data="chartDataLine"
+				:chart-options="chartOptionsLine"
+				:height="height"
+				:width="width"
+			/>
+		</div>
+		<div class="bg-secondary-100 p-5 rounded-lg">
+			<ChartPie
+				:chart-data="chartDataSentiment"
+				:chart-options="chartOptionsSentiment"
+				:height="height"
+				:width="width"
+			/>
+		</div>
 	</div>
 </template>
-<style lang="css">
-	canvas {
-		background-color: #fcfdfe;
-	}
-</style>
+<style lang="css"></style>
